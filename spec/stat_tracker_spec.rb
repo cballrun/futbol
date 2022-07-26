@@ -1,7 +1,4 @@
-require "./lib/stat_tracker.rb"
-require "./lib/teams.rb"
-require "./lib/game"
-require "./lib/game_teams"
+require './lib/stat_tracker'
 
 describe StatTracker do
   before :each do
@@ -206,3 +203,51 @@ describe StatTracker do
     expect(@stat_tracker.lowest_scoring_home_team).to eq "Utah Royals FC"
   end
 end
+
+#   it "has locations that point to file paths" do
+#     locations = {
+#       games: @game_path,
+#       teams: @team_path,
+#       game_teams: @game_teams_path,
+#     }
+#     expect(locations[:games]).to eq("./data/games.csv")
+#     expect(locations[:teams]).to eq("./data/teams.csv")
+#     expect(locations[:game_teams]).to eq("./data/game_teams.csv")
+#   end
+
+#   it "has games, teams, and game_teams" do
+#     expect(@stat_tracker.games).to eq([{ game_id: "2012030221",
+#                                          season: "20122013",
+#                                          type: "Postseason",
+#                                          date_time: "5/16/13",
+#                                          away_team_id: "3",
+#                                          home_team_id: "6",
+#                                          away_goals: "2",
+#                                          home_goals: "3",
+#                                          venue: "Toyota Stadium",
+#                                          venue_link: "/api/v1/venues/null" }])
+
+#     expect(@stat_tracker.teams).to eq([{ team_id: "1",
+#                                          franchiseId: "23",
+#                                          teamName: "Atlanta United",
+#                                          abbreviation: "ATL",
+#                                          Stadium: "Mercedes-Benz Stadium",
+#                                          link: "/api/v1/teams/1" }])
+
+#     expect(@stat_tracker.game_teams).to eq([{ game_id: "2012030221",
+#                                               team_id: "3",
+#                                               HoA: "away",
+#                                               result: "LOSS",
+#                                               settled_in: "OT",
+#                                               head_coach: "John Tortorella",
+#                                               goals: "2",
+#                                               shots: "8",
+#                                               tackles: "44",
+#                                               pim: "8",
+#                                               powerPlayOpportunities: "3",
+#                                               powerPlayGoals: "0",
+#                                               faceOffWinPercentage: "44.8",
+#                                               giveaways: "17",
+#                                               takeaways: "7" }])
+#   end
+# end
