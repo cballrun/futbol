@@ -1,4 +1,5 @@
 require './lib/teams.rb'
+require 'csv'
 
 class StatTracker
   attr_reader :games,
@@ -21,7 +22,7 @@ class StatTracker
       }
     @games = games
     @teams = Teams.create_multiple_teams(@locations[:teams])
-    @game_teams = GameTeams.create_multiple_game_teams(@location[:game_teams])
+    @game_teams = GameTeams.create_multiple_game_teams(@locations[:game_teams])
   end
 
 
@@ -29,6 +30,6 @@ class StatTracker
     games = CSV.parse(File.read(locations[:games]), headers: true, header_converters: :symbol).map(&:to_h)
     @teams
     @game_teams
-    StatTracker.new(games, @teams, game_teams)
+    StatTracker.new(games, @teams, @game_teams)
   end
 end
