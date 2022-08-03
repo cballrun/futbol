@@ -39,7 +39,7 @@ class GameTeamsStats
 
     team_scores_average =
       team_scores.map do |id, scores|
-        [id, ((scores.sum) / (scores.length)).round(2)] #create an average out of the scores
+        [id, ((scores.sum) / (scores.length)).round(2)] 
       end
   end
 
@@ -48,7 +48,7 @@ class GameTeamsStats
     @game_teams.each { |game_team| team_scores[game_team.team_id] << game_team.goals.to_f }
     team_scores_average =
       team_scores.map do |id, scores|
-        [id, ((scores.sum) / (scores.length)).round(2)] #creat an average out of the scores
+        [id, ((scores.sum) / (scores.length)).round(2)] 
       end
   end
 

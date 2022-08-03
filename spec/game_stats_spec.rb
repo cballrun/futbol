@@ -81,7 +81,7 @@ describe GameStats do
     expect(@game_stats.home_teams_average_score.count).to eq(32)
   end
 
-  it "can identify all games that correspond to a certain season id" do #helper method
+  it "can identify all games that correspond to a certain season id" do 
     game_path_dummy = "./spec/fixtures/dummy_game.csv"
     game_stats_dummy = GameStats.from_csv(game_path_dummy)
 
