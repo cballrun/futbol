@@ -163,7 +163,7 @@ describe StatTracker do
   end
 
   it "can count the total number of teams" do
-    expect(@stat_tracker.teams_stats.count_of_teams).to eq(32)
+    expect(@stat_tracker.count_of_teams).to eq(32)
   end
 
   it "can calculate which team was the highest scoring home team" do
@@ -237,7 +237,7 @@ describe StatTracker do
   end
 
   it "can tell the most goals a team has scored in a game across all seasons" do
-    expect(@stat_tracker.game_teams_stats.most_goals_scored("18")).to eq(7)
+    expect(@stat_tracker.most_goals_scored("18")).to eq(7)
   end
 
   it "can tell the fewest goals a team has scored in a game across all seasons" do
