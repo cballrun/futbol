@@ -1,8 +1,13 @@
 require_relative "./game_teams_stats"
 require_relative "./game_stats"
 require_relative "./teams_stats"
+require_relative "./season_groupable"
+require_relative "./averageable"
 
 class StatTracker
+  include Averageable
+  include SeasonGroupable
+
   attr_reader :game_stats, :teams_stats, :game_teams_stats
 
   def initialize(game_stats, teams_stats, game_teams_stats)

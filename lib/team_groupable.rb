@@ -1,5 +1,4 @@
 module TeamGroupable
-
   def all_team_games(team_id) #games helper, returns all of a team's games in an array
     @games.find_all { |game| game.home_team_id == team_id || game.away_team_id == team_id }
   end

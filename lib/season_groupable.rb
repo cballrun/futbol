@@ -12,7 +12,7 @@ module SeasonGroupable
     @games.group_by { |game| game.season }
   end
 
- def games_by_season(season_id)
+  def games_by_season(season_id)
     game_id_list = []
     @games.each do |game|
       if game.season == season_id
@@ -27,7 +27,9 @@ module SeasonGroupable
     @game_stats.games_by_team_id_and_season(season).flat_map { |team_id, games|
       games.map { |game|
         tackles_by_team[team_id] +=
-          @game_teams_stats.number_of_tackles(team_id, game.game_id)}}
+          @game_teams_stats.number_of_tackles(team_id, game.game_id)
+      }
+    }
     tackles_by_team
   end
 end

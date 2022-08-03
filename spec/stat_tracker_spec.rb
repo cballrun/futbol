@@ -6,7 +6,6 @@ require "./lib/averageable"
 require "./lib/team_groupable"
 require "./lib/season_groupable"
 
-
 describe StatTracker do
   before :each do
     game_path = "./data/games.csv"
@@ -175,14 +174,12 @@ describe StatTracker do
     average = [["3", 2.1], ["6", 2.28], ["16", 2.23], ["5", 2.39], ["8", 2.08]]
     expect(@stat_tracker.minimum(average)).to eq(["8", 2.08])
     expect(@stat_tracker.worst_offense).to eq("Utah Royals FC")
-
   end
 
   it "can calculate the highest average of an array in an array of team_id, average" do #helper method
     average = [["3", 2.1], ["6", 2.28], ["16", 2.23], ["5", 2.39], ["8", 2.08]]
     expect(@stat_tracker.maximum(average)).to eq(["5", 2.39])
     expect(@stat_tracker.best_offense).to eq("Reign FC")
-
   end
 
   it "can name the coach with the best winning percentage" do
@@ -262,7 +259,6 @@ describe StatTracker do
     expect(@stat_tracker_dummy.game_teams_stats.team_isolator("6").size).to eq(4)
     expect(@stat_tracker_dummy.game_teams_stats.team_isolator("6")).to be_an(Array)
     expect(@stat_tracker_dummy.average_win_percentage("6")).to eq(1.0)
-
   end
 
   it "can isolate a single teams wins in game_teams" do #game_teams helper
@@ -280,7 +276,6 @@ describe StatTracker do
     expect(@stat_tracker_dummy.game_teams_stats.win_isolator("6").size).to eq(4)
     expect(@stat_tracker_dummy.game_teams_stats.win_isolator("6").map { |game| game.game_id }).to eq(["2012030221", "2012030222", "2012030223", "2012030224"])
     expect(@stat_tracker_dummy.average_win_percentage("6")).to eq(1.0)
-
   end
 
   it "can group games by season in games" do #game helper
