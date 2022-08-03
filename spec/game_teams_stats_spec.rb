@@ -135,25 +135,25 @@ describe GameTeamsStats do
     expect(@game_teams_stats_dummy.number_of_tackles("3", "2012030221")).to eq(44)
   end
 
-  it 'can find the results for all game ids' do 
+  it "can find the results for all game ids" do
     expect(@game_teams_stats.all_game_results("3")).to be_a(Hash)
-    expect(@game_teams_stats.all_game_results("18").length).to eq((@game_teams_stats.game_teams.length)/2)
-    expect(@game_teams_stats.all_game_results("1").length).to eq((@game_teams_stats.game_teams.length)/2)
+    expect(@game_teams_stats.all_game_results("18").length).to eq((@game_teams_stats.game_teams.length) / 2)
+    expect(@game_teams_stats.all_game_results("1").length).to eq((@game_teams_stats.game_teams.length) / 2)
   end
 
-  it 'can find all teams overall records against a given team' do
+  it "can find all teams overall records against a given team" do
     expect(@game_teams_stats.record_vs_our_team("18")).to be_a(Hash)
     expect(@game_teams_stats.record_vs_our_team("18").length).to eq(31)
     expect(@game_teams_stats.record_vs_our_team("1").length).to eq(31)
   end
 
-  it 'can find the team id of the team with the worst overall record against a given team' do
+  it "can find the team id of the team with the worst overall record against a given team" do
     expect(@game_teams_stats.min_win_percent("1")).to be_a(Array)
     expect(@game_teams_stats.min_win_percent("18")[0]).to eq("14")
     expect(@game_teams_stats.min_win_percent("1")[0]).to eq("25")
   end
 
-  it 'can find the team id of the team with the best overall record against a given team' do
+  it "can find the team id of the team with the best overall record against a given team" do
     expect(@game_teams_stats.max_win_percent("1")).to be_a(Array)
     expect(@game_teams_stats.max_win_percent("18")[0]).to eq("14").or eq("17")
     expect(@game_teams_stats.max_win_percent("1")[0]).to eq("17")

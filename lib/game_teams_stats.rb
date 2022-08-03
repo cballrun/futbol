@@ -39,7 +39,7 @@ class GameTeamsStats
 
     team_scores_average =
       team_scores.map do |id, scores|
-        [id, ((scores.sum) / (scores.length)).round(2)] #create an average out of the scores
+        [id, ((scores.sum) / (scores.length)).round(2)] 
       end
   end
 
@@ -48,7 +48,7 @@ class GameTeamsStats
     @game_teams.each { |game_team| team_scores[game_team.team_id] << game_team.goals.to_f }
     team_scores_average =
       team_scores.map do |id, scores|
-        [id, ((scores.sum) / (scores.length)).round(2)] #creat an average out of the scores
+        [id, ((scores.sum) / (scores.length)).round(2)] 
       end
   end
 
@@ -100,11 +100,11 @@ class GameTeamsStats
     all_game_results
   end
 
-  def record_vs_our_team(team_id)  
+  def record_vs_our_team(team_id)
     all_game_results = all_game_results(team_id)
     our_team_results = all_game_results
-    .find_all { |game_id, teams_hash| teams_hash[:is_our_team] }
-    .to_h
+      .find_all { |game_id, teams_hash| teams_hash[:is_our_team] }
+      .to_h
     record_vs_our_team = Hash.new { |h, k| h[k] = { wins: 0.0, losses: 0.0, ties: 0.0 } }
     our_team_results.each do |game_id, teams_hash|
       other_team_id = teams_hash[:other_team_id]
@@ -121,23 +121,23 @@ class GameTeamsStats
 
   def min_win_percent(team_id)
     record_vs_our_team = record_vs_our_team(team_id)
-    our_favorite_opponent =                            
-    record_vs_our_team.min do |team_win_1, team_win_2|
-      win_percentage_1 = (team_win_1[1][:wins] / (team_win_1[1][:losses] + team_win_1[1][:ties] + team_win_1[1][:wins])) * 100
-      win_percentage_2 = (team_win_2[1][:wins] / (team_win_2[1][:losses] + team_win_2[1][:ties] + team_win_2[1][:wins])) * 100
-      win_percentage_1 <=> win_percentage_2
-    end
+    our_favorite_opponent =
+      record_vs_our_team.min do |team_win_1, team_win_2|
+        win_percentage_1 = (team_win_1[1][:wins] / (team_win_1[1][:losses] + team_win_1[1][:ties] + team_win_1[1][:wins])) * 100
+        win_percentage_2 = (team_win_2[1][:wins] / (team_win_2[1][:losses] + team_win_2[1][:ties] + team_win_2[1][:wins])) * 100
+        win_percentage_1 <=> win_percentage_2
+      end
     our_favorite_opponent
   end
 
   def max_win_percent(team_id)
     record_vs_our_team = record_vs_our_team(team_id)
-    our_rival =                            
-    record_vs_our_team.max do |team_win_1, team_win_2|
-      win_percentage_1 = (team_win_1[1][:wins] / (team_win_1[1][:losses] + team_win_1[1][:ties] + team_win_1[1][:wins])) * 100
-      win_percentage_2 = (team_win_2[1][:wins] / (team_win_2[1][:losses] + team_win_2[1][:ties] + team_win_2[1][:wins])) * 100
-      win_percentage_1 <=> win_percentage_2
-    end
+    our_rival =
+      record_vs_our_team.max do |team_win_1, team_win_2|
+        win_percentage_1 = (team_win_1[1][:wins] / (team_win_1[1][:losses] + team_win_1[1][:ties] + team_win_1[1][:wins])) * 100
+        win_percentage_2 = (team_win_2[1][:wins] / (team_win_2[1][:losses] + team_win_2[1][:ties] + team_win_2[1][:wins])) * 100
+        win_percentage_1 <=> win_percentage_2
+      end
     our_rival
   end
 end

@@ -14,9 +14,6 @@ describe Game do
                        home_goals: "3",
                        venue: "Toyota Stadium",
                        venue_link: "/api/v1/venues/null" })
-    # @locations = './data/games.csv'
-    # @games_all = Game.create_multiple_games(@locations)
-
   end
 
   it "exists" do
